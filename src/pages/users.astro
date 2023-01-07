@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
+import HelloWorld from "../components/HelloWorld";
 import MainLayout from "../layouts/MainLayout.astro";
 
 // No es necesario el Async, ya que hay un top level async
@@ -11,6 +12,7 @@ console.log(characters);
 ---
 
 <MainLayout>
+  <HelloWorld client:load />
   <h1 class="text-3xl font-bold">Users</h1>
   <ul class="flex items-center justify-center flex-wrap">
     {
