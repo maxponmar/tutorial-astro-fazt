@@ -1,9 +1,33 @@
 ---
 import Footer from "../components/Footer.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+// No es necesario el Async, ya que hay un top level async
+const response = await fetch("https://rickandmortyapi.com/api/character");
+const characters = await response.json();
+
+// Este console log no se ve en el navegador, solo en la terminal
+console.log(characters);
 ---
 
 <MainLayout>
   <h1>Users</h1>
-  <Footer title="Footer en Usuarios" />
+  <ul>
+    {
+      characters.results.map((character: any) => (
+        <li>
+          <h1>{character.name}</h1>
+          <img src={character.image} class="image-profile" />
+        </li>
+      ))
+    }
+    <Footer title="Footer en Usuarios" />
+  </ul>
 </MainLayout>
+
+<style>
+  .image-profile {
+    border-radius: 50%;
+    width: 100px;
+  }
+</style>
