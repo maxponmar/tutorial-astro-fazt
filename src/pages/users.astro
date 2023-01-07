@@ -11,18 +11,18 @@ console.log(characters);
 ---
 
 <MainLayout>
-  <h1>Users</h1>
-  <ul>
+  <h1 class="text-3xl font-bold">Users</h1>
+  <ul class="flex items-center justify-center flex-wrap">
     {
       characters.results.map((character: any) => (
-        <li>
-          <h1>{character.name}</h1>
+        <li class="p-2 flex items-center justify-center flex-col">
+          <h1 class="font-bold">{character.name}</h1>
           <img src={character.image} class="image-profile" />
         </li>
       ))
     }
-    <Footer title="Footer en Usuarios" />
   </ul>
+  <Footer title="Footer en Usuarios" />
 </MainLayout>
 
 <style>
